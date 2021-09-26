@@ -3,7 +3,7 @@ Creator: Florian HOCQUET
 Date: 26/09/2021
 Version: 1.0
 
-Purpose: Landmark on a video stream using mediapipe and OpenCV
+Purpose: Landmark on a video stream using mediapipe and OpenCV.
 """
 
 # LIB IMPORT
@@ -110,7 +110,3 @@ class videoLandmark:
 
             if cv.waitKey(10) == 27:
                 self._videoStream.release()
-
-
-a = videoLandmark("face", nbElem=2)
-a.process()

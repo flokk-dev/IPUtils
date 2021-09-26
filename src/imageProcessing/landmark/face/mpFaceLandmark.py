@@ -3,7 +3,7 @@ Creator: Florian HOCQUET
 Date: 26/09/2021
 Version: 1.0
 
-Purpose: Face Landmark on an image using mediapipe and OpenCV
+Purpose: Face Landmark on an image using mediapipe and OpenCV.
 """
 
 # LIB IMPORT

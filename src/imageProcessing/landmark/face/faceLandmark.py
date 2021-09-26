@@ -3,7 +3,7 @@ Creator: Florian HOCQUET
 Date: 19/09/2021
 Version: 1.0
 
-Purpose: Face Landmark on image using dlib and OpenCV
+Purpose: Face Landmark on image using dlib and OpenCV.
 """
 
 # PROJECT IMPORT
