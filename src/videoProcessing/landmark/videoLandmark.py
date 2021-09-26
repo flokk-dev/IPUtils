@@ -11,7 +11,8 @@ import mediapipe as mp
 import cv2 as cv
 
 # PROJECT IMPORT
-import src.imageProcessing.landmark.face.faceLandmark as fL
+import src.imageProcessing.landmark.face.mpFaceLandmark as fL
+import src.imageProcessing.landmark.hand.mpHandLandmark as hL
 
 
 # CODE
@@ -40,10 +41,10 @@ class videoLandmark:
 
     _PROCESSING = {
         "face": fL.faceLandmark,
-        "hand": None
+        "hand": hL.handLandmark
     }
 
-    def __init__(self, bodyPart, nbElem=1, minDetectionConfidence=0.5, minTrackingConfidence=0.5):
+    def __init__(self, bodyPart, nbElem=1, minDetectionConfidence=0.6, minTrackingConfidence=0.6):
         """
         -----
         Initialise all the necessary attributes for the faceLandmark process.
@@ -72,7 +73,7 @@ class videoLandmark:
 
         self._videoStream = None
 
-        self._imageProcessing = self._PROCESSING[bodyPart](nbFaces=nbElem,
+        self._imageProcessing = self._PROCESSING[bodyPart](nbElem=nbElem,
                                                            minDetectionConfidence=minDetectionConfidence,
                                                            minTrackingConfidence=minTrackingConfidence)
 
@@ -105,10 +106,11 @@ class videoLandmark:
                 continue
 
             landmarkDatas = self._imageProcessing.process(image)
+            print(landmarkDatas)
 
             if cv.waitKey(10) == 27:
                 self._videoStream.release()
 
 
-a = videoLandmark("face")
+a = videoLandmark("face", nbElem=2)
 a.process()
