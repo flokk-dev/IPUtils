@@ -10,14 +10,14 @@ Purpose: script to use de mediapipe video landmark.
 import argparse
 
 # PROJECT IMPORT
-import src.videoProcessing.landmark.mediapipe.videoLandmark as vL
+from src.videoProcessing.landmark.mediapipe import videoLandmark as vL
 
 # CODE
 ap = argparse.ArgumentParser()
 ap.add_argument("-f", "--face", required=True, help="apply landmark on the face, "
                                                     "following by the number of face to detect")
-ap.add_argument("-h", "--hand", required=True, help="apply landmark on the hand"
-                                                    "following by the number of hand to detect")
+ap.add_argument("-ha", "--hand", required=True, help="apply landmark on the hand"
+                                                     "following by the number of hand to detect")
 
 args = ap.parse_args()
 
